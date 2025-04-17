@@ -20,6 +20,7 @@ jobs:
       with:
         python-version: '3.x'
 
+
         - name: install semgrep
           run: pip install Semgrep
 
