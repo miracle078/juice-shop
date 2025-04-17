@@ -1,11 +1,10 @@
-name: CSN Sengrep Pipeline
+name: Semgrep Pipeline
 
-on :
+on:
   push:
-    bracnches:
+    branches:
       - master
-    pull_request:
-
+  pull_request:
 
 jobs:
   semgrep:
@@ -20,15 +19,8 @@ jobs:
       with:
         python-version: '3.x'
 
+    - name: Install Semgrep
+      run: pip install semgrep
 
-        - name: install semgrep
-          run: pip install Semgrep
-
-        - name: Run semgrep
-          run: semgrep --config auto --error || true
-          
-
-  
-
-
-  
+    - name: Run semgrep
+      run: semgrep --config auto --error || true
